@@ -22,6 +22,7 @@ find_numofunit = re.compile(r'([^\w.%=()+-])(\d+)([A-Za-z]+)[^\d]').findall
 class TermValidatorPlugin(mkdocs.plugins.BasePlugin):
     config_scheme = (
         ('rule_dic_file', config_options.Type(str, default=None)),
+        ('console_output_only', config_options.Type(bool, default=False)),
     )
 
     def on_pre_build(self, config):
@@ -39,11 +40,12 @@ class TermValidatorPlugin(mkdocs.plugins.BasePlugin):
                     continue
                 msg = f"{page.file.src_path}:{lineno} Detect NG word: {found.group(0)} -> {good}"
                 logger.warning(msg)
-                new_lines.extend([
-                    "!!! warning",
-                    "    " + msg,
-                    ""
-                ])
+                if not self.config['console_output_only']:
+                    new_lines.extend([
+                        "!!! warning",
+                        "    " + msg,
+                        ""
+                    ])
 
         return "\n".join(new_lines)
 
