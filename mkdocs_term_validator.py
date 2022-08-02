@@ -20,8 +20,14 @@ class TermValidatorPlugin(mkdocs.plugins.BasePlugin):
 
     def on_page_markdown(self, markdown, page, config, files):
         new_lines = []
+        in_code_block = False
         for lineno, line in enumerate(markdown.split("\n")):
             new_lines.append(line)
+            
+            if line.startswith("```"):
+                in_code_block = not in_code_block
+            if in_code_block:
+                continue
 
             for finder, ng, good in NG_WORDS:
                 found = finder(line)
