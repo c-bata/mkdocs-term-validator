@@ -1,4 +1,4 @@
-# mkdocs-term-validaator
+# mkdocs-term-validator
 
 mkdocs port of https://github.com/shimizukawa/sphinx-term-validator
 
