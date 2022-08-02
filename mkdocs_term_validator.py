@@ -7,17 +7,6 @@ import mkdocs.plugins
 logger = logging.getLogger(__name__)
 NG_WORDS = []
 
-# compiled re objects
-find_parethesis = re.compile(r'\(([^)]*)\)').findall
-find_question_exclamation = re.compile(r'([ぁ-んァ-ヶー一-龠]+)([!?]+)').findall
-sub_dot_space = re.compile(r'([^\d,.])\. ').sub
-sub_dot_newline = re.compile(r'([^\d,.])\.\n').sub
-sub_dot_eol = re.compile(r'([^\d,.])\.$').sub
-sub_comma_space = re.compile(r'([^,.]), ').sub
-sub_comma_newline = re.compile(r'([^,.]),\n').sub
-sub_comma_eol = re.compile(r'([^,.]),$').sub
-find_numofunit = re.compile(r'([^\w.%=()+-])(\d+)([A-Za-z]+)[^\d]').findall
-
 
 class TermValidatorPlugin(mkdocs.plugins.BasePlugin):
     config_scheme = (

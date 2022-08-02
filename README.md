@@ -2,6 +2,8 @@
 
 mkdocs port of https://github.com/shimizukawa/sphinx-term-validator
 
+![example](./example.png)
+
 ## Installation
 
 ```
