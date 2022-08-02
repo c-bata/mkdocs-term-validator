@@ -1,4 +1,5 @@
-# See https://github.com/shimizukawa/sphinx-term-validator/blob/master/rule.dic
+# This file is derived from https://github.com/shimizukawa/sphinx-term-validator/blob/master/rule.dic
+# on August 2, 2022, hence it is distributed under Apache License Version 2.0
 
 # typos
 をを	を
